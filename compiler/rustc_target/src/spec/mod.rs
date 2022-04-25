@@ -1023,6 +1023,8 @@ supported_targets! {
     ("x86_64-unknown-none", x86_64_unknown_none),
 
     ("mips64-openwrt-linux-musl", mips64_openwrt_linux_musl),
+
+    ("x86_64-coral-unknown-kernel", x86_64_coral_unknown_kernel),
 }
 
 /// Warnings encountered when parsing the target `json`.

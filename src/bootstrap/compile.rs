@@ -308,6 +308,9 @@ pub fn std_cargo(builder: &Builder<'_>, target: TargetSelection, stage: u32, car
     } else {
         let mut features = builder.std_features(target);
         features.push_str(compiler_builtins_c_feature);
+        if target.contains("coral") {
+            features.push_str(" compiler-builtins-mem");
+        }
 
         cargo
             .arg("--features")

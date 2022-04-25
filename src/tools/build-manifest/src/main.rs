@@ -153,6 +153,7 @@ static TARGETS: &[&str] = &[
     "x86_64-unknown-netbsd",
     "x86_64-unknown-redox",
     "x86_64-unknown-hermit",
+    "x86_64-unknown-none-coral",
 ];
 
 /// This allows the manifest to contain rust-docs for hosts that don't build

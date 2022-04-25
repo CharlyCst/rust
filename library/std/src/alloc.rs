@@ -318,7 +318,7 @@ fn default_alloc_error_hook(layout: Layout) {
     rtprintpanic!("memory allocation of {} bytes failed\n", layout.size());
 }
 
-#[cfg(not(test))]
+#[cfg(not(any(test, target_vendor = "coral")))]
 #[doc(hidden)]
 #[alloc_error_handler]
 #[unstable(feature = "alloc_internals", issue = "none")]

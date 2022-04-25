@@ -2933,10 +2933,17 @@ impl RandomState {
     /// ```
     #[inline]
     #[allow(deprecated)]
+    #[allow(unreachable_code)]
     // rand
     #[must_use]
     #[stable(feature = "hashmap_build_hasher", since = "1.7.0")]
     pub fn new() -> RandomState {
+        // For now Coral does not try to provide DoS-resistant hashmap, and does
+        // not yet support thread-local variables, so we just return a fixed
+        // value.
+        #[cfg(target_vendor = "coral")]
+        return RandomState { k0: 14, k1: 15 };
+
         // Historically this function did not cache keys from the OS and instead
         // simply always called `rand::thread_rng().gen()` twice. In #31356 it
         // was discovered, however, that because we re-seed the thread-local RNG
